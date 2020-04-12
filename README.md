@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # iveiw-admin-1.0.0
 
 ## Project setup
@@ -22,3 +23,7 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# s-admin
+iview vue admin
+>>>>>>> cbc17c9ad40a7854265917a0a2ff603b3abe68e7
