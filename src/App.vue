@@ -14,6 +14,7 @@
 </template>
 
 <style lang="less">
+
 .router-enter,
 .router-leave-to {
   opacity: 0;
