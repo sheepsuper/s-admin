@@ -1,27 +1,31 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import routes from "./router";
+import { setDocumentTitle } from "@/lib/utils";
 
-Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes
-})
+});
 
-export default router
+const HAS_LOGIN = true;
+
+// 路由全局守卫
+router.beforeEach((to, from, next) => {
+  to.meta && setDocumentTitle(to.meta.title);
+  if (to.name !== "login") {
+    if (HAS_LOGIN) next();
+    else next("/login");
+  } else {
+    if (HAS_LOGIN) next({ name: "home" });
+    else next();
+  }
+});
+
+// 路由全局后置钩子
+// router.afterEach((to,from)={
+//   // loading = false
+// })
+
+export default router;

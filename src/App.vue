@@ -1,14 +1,34 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Home</router-link>|
+      <router-link :to="{name:'about'}">About</router-link>
     </div>
-    <router-view/>
+    <!-- 命名视图 -->
+    <transition-group name="router">
+      <router-view key="default" />
+      <router-view key="email" name="email" />
+      <router-view key="tel" name="tel" />
+    </transition-group>
   </div>
 </template>
 
 <style lang="less">
+.router-enter,
+.router-leave-to {
+  opacity: 0;
+}
+
+.router-enter-active,
+.router-leave-active {
+  transition: opacity .8s ease;
+}
+
+.router-enter-to,
+.router-leave {
+  opacity: 1;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
