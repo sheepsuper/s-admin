@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  props:{
-    food:{
+  props: {
+    food: {
       type: String,
       default: 'apple'
     }

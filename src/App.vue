@@ -14,7 +14,6 @@
 </template>
 
 <style lang="less">
-
 .router-enter,
 .router-leave-to {
   opacity: 0;
@@ -22,7 +21,7 @@
 
 .router-enter-active,
 .router-leave-active {
-  transition: opacity .8s ease;
+  transition: opacity 0.8s ease;
 }
 
 .router-enter-to,

@@ -9,13 +9,13 @@
 export default {
   data() {
     return {
-      message: ""
-    };
+      message: ''
+    }
   },
   mounted() {
-    this.$bus.$on("on-click", message => {
-      this.message = message;
-    });
+    this.$bus.$on('on-click', message => {
+      this.message = message
+    })
   }
-};
+}
 </script>
